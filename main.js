@@ -46497,7 +46497,7 @@ var LoginIdComponent = class _LoginIdComponent {
   static \u0275fac = function LoginIdComponent_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _LoginIdComponent)();
   };
-  static \u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _LoginIdComponent, selectors: [["app-login-id"]], decls: 37, vars: 1, consts: [[1, "login-container"], [1, "login-form", 3, "ngSubmit", "formGroup"], [1, "logo-header"], ["src", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2Af-0Ku07cG0FeEYv341kbJynefnHPzpDqg&s", "alt", "Company Logo", 1, "logo-img"], [1, "form-content"], [1, "form-column", "primary-login"], [1, "input-group"], ["for", "username"], ["type", "text", "id", "username", "name", "username", "placeholder", "Enter your username", "required", "", "formControlName", "email"], ["type", "submit", 1, "submit-button"], [1, "vertical-divider"], [1, "form-column", "social-login"], ["type", "button", 1, "social-button", "facebook", 3, "click"], [1, "icon"], ["type", "button", 1, "social-button", "google", 3, "click"], ["type", "button", 1, "social-button", "apple", 3, "click"], [1, "form-footer"], ["href", "/forgot-password", 1, "footer-link"], ["href", "/signup", 1, "footer-link"]], template: function LoginIdComponent_Template(rf, ctx) {
+  static \u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _LoginIdComponent, selectors: [["app-login-id"]], decls: 33, vars: 2, consts: [[1, "login-container"], [1, "login-form", 3, "ngSubmit", "formGroup"], [1, "logo-header"], ["src", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2Af-0Ku07cG0FeEYv341kbJynefnHPzpDqg&s", "alt", "Company Logo", 1, "logo-img"], [1, "form-content"], [1, "form-column", "primary-login"], [1, "input-group"], ["for", "username"], ["type", "text", "id", "username", "name", "username", "placeholder", "Enter your username", "required", "", "formControlName", "email"], ["type", "submit", 1, "submit-button"], [1, "vertical-divider"], [1, "form-column", "social-login"], ["type", "button", 1, "social-button", "facebook", 3, "click"], [1, "icon"], ["type", "button", 1, "social-button", "google", 3, "click"], ["type", "button", 1, "social-button", "apple", 3, "click"], [1, "form-footer"], [1, "footer-link", 3, "href"]], template: function LoginIdComponent_Template(rf, ctx) {
     if (rf & 1) {
       \u0275\u0275elementStart(0, "div", 0)(1, "form", 1);
       \u0275\u0275listener("ngSubmit", function LoginIdComponent_Template_form_ngSubmit_1_listener($event) {
@@ -46549,18 +46549,14 @@ var LoginIdComponent = class _LoginIdComponent {
       \u0275\u0275text(29, " Sign In with Apple ");
       \u0275\u0275elementEnd()()();
       \u0275\u0275elementStart(30, "div", 16)(31, "a", 17);
-      \u0275\u0275text(32, "Forgot Password?");
-      \u0275\u0275elementEnd();
-      \u0275\u0275elementStart(33, "span");
-      \u0275\u0275text(34, "|");
-      \u0275\u0275elementEnd();
-      \u0275\u0275elementStart(35, "a", 18);
-      \u0275\u0275text(36, "Sign Up");
+      \u0275\u0275text(32, "Sign Up");
       \u0275\u0275elementEnd()()()();
     }
     if (rf & 2) {
       \u0275\u0275advance();
       \u0275\u0275property("formGroup", ctx.loginIdForm);
+      \u0275\u0275advance(30);
+      \u0275\u0275property("href", ctx.signUpLink, \u0275\u0275sanitizeUrl);
     }
   }, dependencies: [ReactiveFormsModule, \u0275NgNoValidate, DefaultValueAccessor, NgControlStatus, NgControlStatusGroup, RequiredValidator, FormGroupDirective, FormControlName], encapsulation: 2 });
 };
@@ -46631,9 +46627,9 @@ var LoginIdComponent = class _LoginIdComponent {
         </div>
 
         <div class="form-footer">
-            <a href="/forgot-password" class="footer-link">Forgot Password?</a>
-            <span>|</span>
-            <a href="/signup" class="footer-link">Sign Up</a>
+            <!--<a href="/forgot-password" class="footer-link">Forgot Password?</a>
+            <span>|</span>-->
+            <a [href]="signUpLink" class="footer-link">Sign Up</a>
         </div>
     </form>
 </div>
@@ -46641,7 +46637,7 @@ var LoginIdComponent = class _LoginIdComponent {
   }], null, null);
 })();
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(LoginIdComponent, { className: "LoginIdComponent", filePath: "src/app/login-id/login-id.component.ts", lineNumber: 23 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(LoginIdComponent, { className: "LoginIdComponent" });
 })();
 
 // src/app/login-password/login-password.component.ts
@@ -46741,7 +46737,278 @@ var LoginPasswordComponent = class _LoginPasswordComponent {
   }], null, null);
 })();
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(LoginPasswordComponent, { className: "LoginPasswordComponent", filePath: "src/app/login-password/login-password.component.ts", lineNumber: 11 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(LoginPasswordComponent, { className: "LoginPasswordComponent" });
+})();
+
+// src/app/signup-id/signup-id.component.ts
+var SignupIdComponent = class _SignupIdComponent {
+  screenProvider = new a8();
+  signupIdForm = new FormGroup({
+    email: new FormControl(""),
+    firstName: new FormControl(""),
+    lastName: new FormControl(""),
+    phone: new FormControl("")
+  });
+  handleSubmit(e34) {
+    e34.preventDefault();
+    console.log(this.signupIdForm.value.email);
+    this.screenProvider.signup({
+      email: this.signupIdForm.value.email ?? "",
+      "ulp-first-name": this.signupIdForm.value.firstName ?? "",
+      "ulp-last-name": this.signupIdForm.value.lastName ?? "",
+      "ulp-phone": this.signupIdForm.value.phone ?? ""
+    });
+  }
+  static \u0275fac = function SignupIdComponent_Factory(__ngFactoryType__) {
+    return new (__ngFactoryType__ || _SignupIdComponent)();
+  };
+  static \u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _SignupIdComponent, selectors: [["app-signup-id"]], decls: 27, vars: 1, consts: [[1, "login-container"], [1, "logo-header"], ["src", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2Af-0Ku07cG0FeEYv341kbJynefnHPzpDqg&s", "alt", "Company Logo", 1, "logo-img"], [1, "signup-form-container"], [3, "ngSubmit", "formGroup"], [1, "form-group"], ["for", "firstName"], ["type", "text", "formControlName", "firstName", "placeholder", "First Name"], ["for", "lastName"], ["type", "text", "formControlName", "lastName", "placeholder", "Last Name"], ["for", "email"], ["type", "email", "formControlName", "email", "placeholder", "Email"], ["for", "phoneNumber"], ["type", "phone", "formControlName", "phone", "placeholder", "Phone Number"], ["type", "submit"]], template: function SignupIdComponent_Template(rf, ctx) {
+    if (rf & 1) {
+      \u0275\u0275elementStart(0, "div", 0)(1, "div", 1);
+      \u0275\u0275element(2, "img", 2);
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(3, "h3");
+      \u0275\u0275text(4, " Welcome to My Toyota. Here you'll find specially curated offers, resources and more. ");
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(5, "div", 3)(6, "form", 4);
+      \u0275\u0275listener("ngSubmit", function SignupIdComponent_Template_form_ngSubmit_6_listener($event) {
+        return ctx.handleSubmit($event);
+      });
+      \u0275\u0275elementStart(7, "h2");
+      \u0275\u0275text(8, "Create Account");
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(9, "div", 5)(10, "label", 6);
+      \u0275\u0275text(11, "First Name");
+      \u0275\u0275elementEnd();
+      \u0275\u0275element(12, "input", 7);
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(13, "div", 5)(14, "label", 8);
+      \u0275\u0275text(15, "Last Name");
+      \u0275\u0275elementEnd();
+      \u0275\u0275element(16, "input", 9);
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(17, "div", 5)(18, "label", 10);
+      \u0275\u0275text(19, "Email");
+      \u0275\u0275elementEnd();
+      \u0275\u0275element(20, "input", 11);
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(21, "div", 5)(22, "label", 12);
+      \u0275\u0275text(23, "Phone Number");
+      \u0275\u0275elementEnd();
+      \u0275\u0275element(24, "input", 13);
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(25, "button", 14);
+      \u0275\u0275text(26, "Submit");
+      \u0275\u0275elementEnd()()()();
+    }
+    if (rf & 2) {
+      \u0275\u0275advance(6);
+      \u0275\u0275property("formGroup", ctx.signupIdForm);
+    }
+  }, dependencies: [ReactiveFormsModule, \u0275NgNoValidate, DefaultValueAccessor, NgControlStatus, NgControlStatusGroup, FormGroupDirective, FormControlName], styles: ["\n\nbody[_ngcontent-%COMP%] {\n  font-family: Arial, sans-serif;\n  background-color: #f4f4f4;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100vh;\n  margin: 0;\n}\n.signup-form-container[_ngcontent-%COMP%] {\n  padding: 2rem;\n  border-radius: 8px;\n  width: 100%;\n  max-width: 400px;\n}\nh2[_ngcontent-%COMP%] {\n  text-align: center;\n  margin-bottom: 1.5rem;\n  color: #333;\n}\n.form-group[_ngcontent-%COMP%] {\n  margin-bottom: 1rem;\n}\n.form-group[_ngcontent-%COMP%]   label[_ngcontent-%COMP%] {\n  display: block;\n  margin-bottom: 0.5rem;\n  color: #555;\n}\n.form-group[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  width: 100%;\n  padding: 0.75rem;\n  border: 1px solid #ccc;\n  border-radius: 4px;\n  box-sizing: border-box;\n}\nbutton[_ngcontent-%COMP%] {\n  width: 100%;\n  padding: 0.75rem;\n  background-color: #007bff;\n  border: none;\n  border-radius: 4px;\n  color: #fff;\n  font-size: 1rem;\n  cursor: pointer;\n  transition: background-color 0.3s;\n}\nbutton[_ngcontent-%COMP%]:hover {\n  background-color: #0056b3;\n}"] });
+};
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(SignupIdComponent, [{
+    type: Component,
+    args: [{ selector: "app-signup-id", imports: [ReactiveFormsModule], template: `<div class="login-container">
+    <div class="logo-header">
+        <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2Af-0Ku07cG0FeEYv341kbJynefnHPzpDqg&s"
+            alt="Company Logo"
+            class="logo-img"
+        />
+    </div>
+    <h3>
+        Welcome to My Toyota. Here you'll find specially curated offers,
+        resources and more.
+    </h3>
+
+    <div class="signup-form-container">
+        <form [formGroup]="signupIdForm" (ngSubmit)="handleSubmit($event)">
+            <h2>Create Account</h2>
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input
+                    type="text"
+                    formControlName="firstName"
+                    placeholder="First Name"
+                />
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input
+                    type="text"
+                    formControlName="lastName"
+                    placeholder="Last Name"
+                />
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                    type="email"
+                    formControlName="email"
+                    placeholder="Email"
+                />
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number</label>
+                <input
+                    type="phone"
+                    formControlName="phone"
+                    placeholder="Phone Number"
+                />
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!--<form [formGroup]="signupIdForm" (ngSubmit)="handleSubmit($event)">
+        <input
+            type="text"
+            formControlName="firstName"
+            class="login-input"
+            placeholder="First Name"
+        />
+        <input
+            type="text"
+            formControlName="lastName"
+            class="login-input"
+            placeholder="Last Name"
+        />
+        <input
+            type="email"
+            formControlName="email"
+            class="login-input"
+            placeholder="Email"
+        />
+        <input
+            type="phone"
+            formControlName="phone"
+            class="login-input"
+            placeholder="Phone Number"
+        />
+
+        <button type="submit" class="login-button">Submit</button>
+    </form>-->
+    <!--<div class="login-footer">
+        <p>{{ footerText }} <a [href]="loginLink"> Login</a></p>
+    </div>-->
+</div>
+`, styles: ["/* src/app/signup-id/signup-id.component.css */\nbody {\n  font-family: Arial, sans-serif;\n  background-color: #f4f4f4;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100vh;\n  margin: 0;\n}\n.signup-form-container {\n  padding: 2rem;\n  border-radius: 8px;\n  width: 100%;\n  max-width: 400px;\n}\nh2 {\n  text-align: center;\n  margin-bottom: 1.5rem;\n  color: #333;\n}\n.form-group {\n  margin-bottom: 1rem;\n}\n.form-group label {\n  display: block;\n  margin-bottom: 0.5rem;\n  color: #555;\n}\n.form-group input {\n  width: 100%;\n  padding: 0.75rem;\n  border: 1px solid #ccc;\n  border-radius: 4px;\n  box-sizing: border-box;\n}\nbutton {\n  width: 100%;\n  padding: 0.75rem;\n  background-color: #007bff;\n  border: none;\n  border-radius: 4px;\n  color: #fff;\n  font-size: 1rem;\n  cursor: pointer;\n  transition: background-color 0.3s;\n}\nbutton:hover {\n  background-color: #0056b3;\n}\n"] }]
+  }], null, null);
+})();
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(SignupIdComponent, { className: "SignupIdComponent" });
+})();
+
+// src/app/email-identifier-challenge/email-identifier-challenge.component.ts
+var EmailIdentifierChallengeComponent = class _EmailIdentifierChallengeComponent {
+  emailIdentifierChallenge = new a14();
+  ngOnInit() {
+    console.log(this.emailIdentifierChallenge);
+    if (this.emailIdentifierChallenge.transaction.hasErrors) {
+      this.emailIdForm.controls.code.setErrors({
+        "wrong-email-credentials": true
+      });
+      console.log("hasErrors");
+      this.hasErrors = true;
+    }
+  }
+  hasErrors = false;
+  emailIdForm = new FormGroup({
+    code: new FormControl("")
+  });
+  st = this.emailIdentifierChallenge.screen.texts;
+  title = this.st?.title ?? "";
+  desc = this.st?.emailDescription ?? "";
+  email = this.emailIdentifierChallenge.screen.data?.email ?? "";
+  pc = this.st?.emailplaceholder ?? "";
+  bt = this.st?.buttonText ?? "";
+  rt = this.st?.resendText ?? "";
+  rat = this.st?.resendActionText ?? "";
+  gb = this.st?.backButtonText ?? "";
+  logoUrl = this.emailIdentifierChallenge.client.logoUrl ?? "";
+  handleSubmit(e34) {
+    e34.preventDefault();
+    this.emailIdentifierChallenge.submitEmailChallenge({
+      code: this.emailIdForm.value.code ?? ""
+    });
+  }
+  resend() {
+    this.emailIdentifierChallenge.resendCode();
+  }
+  goBack() {
+    this.emailIdentifierChallenge.returnToPrevious();
+  }
+  static \u0275fac = function EmailIdentifierChallengeComponent_Factory(__ngFactoryType__) {
+    return new (__ngFactoryType__ || _EmailIdentifierChallengeComponent)();
+  };
+  static \u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _EmailIdentifierChallengeComponent, selectors: [["app-email-identifier-challenge"]], decls: 24, vars: 9, consts: [[1, "login-container"], [1, "signup-form-container"], [1, "logo-header"], ["src", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2Af-0Ku07cG0FeEYv341kbJynefnHPzpDqg&s", "alt", "Company Logo", 1, "logo-img"], [3, "ngSubmit", "formGroup"], [1, "form-group"], ["for", "code"], ["type", "text", "formControlName", "code", 3, "placeholder"], ["type", "submit"], [1, "login-footer"], [3, "click"]], template: function EmailIdentifierChallengeComponent_Template(rf, ctx) {
+    if (rf & 1) {
+      \u0275\u0275elementStart(0, "div", 0)(1, "div", 1)(2, "div", 2);
+      \u0275\u0275element(3, "img", 3);
+      \u0275\u0275elementStart(4, "h2");
+      \u0275\u0275text(5);
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(6, "h3");
+      \u0275\u0275text(7);
+      \u0275\u0275elementEnd()();
+      \u0275\u0275elementStart(8, "form", 4);
+      \u0275\u0275listener("ngSubmit", function EmailIdentifierChallengeComponent_Template_form_ngSubmit_8_listener($event) {
+        return ctx.handleSubmit($event);
+      });
+      \u0275\u0275element(9, "div", 5);
+      \u0275\u0275elementStart(10, "div", 5)(11, "label", 6);
+      \u0275\u0275text(12, "Code");
+      \u0275\u0275elementEnd();
+      \u0275\u0275element(13, "input", 7);
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(14, "button", 8);
+      \u0275\u0275text(15);
+      \u0275\u0275elementEnd()();
+      \u0275\u0275elementStart(16, "div", 9)(17, "p");
+      \u0275\u0275text(18);
+      \u0275\u0275elementStart(19, "a", 10);
+      \u0275\u0275listener("click", function EmailIdentifierChallengeComponent_Template_a_click_19_listener() {
+        return ctx.resend();
+      });
+      \u0275\u0275text(20);
+      \u0275\u0275elementEnd()()();
+      \u0275\u0275elementStart(21, "p")(22, "a", 10);
+      \u0275\u0275listener("click", function EmailIdentifierChallengeComponent_Template_a_click_22_listener() {
+        return ctx.goBack();
+      });
+      \u0275\u0275text(23);
+      \u0275\u0275elementEnd()()()();
+    }
+    if (rf & 2) {
+      \u0275\u0275advance(5);
+      \u0275\u0275textInterpolate(ctx.title);
+      \u0275\u0275advance(2);
+      \u0275\u0275textInterpolate2("", ctx.desc, " ", ctx.email, "");
+      \u0275\u0275advance();
+      \u0275\u0275property("formGroup", ctx.emailIdForm);
+      \u0275\u0275advance(5);
+      \u0275\u0275propertyInterpolate("placeholder", ctx.pc);
+      \u0275\u0275advance(2);
+      \u0275\u0275textInterpolate(ctx.bt);
+      \u0275\u0275advance(3);
+      \u0275\u0275textInterpolate1(" ", ctx.rt, "");
+      \u0275\u0275advance(2);
+      \u0275\u0275textInterpolate(ctx.rat);
+      \u0275\u0275advance(3);
+      \u0275\u0275textInterpolate(ctx.gb);
+    }
+  }, dependencies: [ReactiveFormsModule, \u0275NgNoValidate, DefaultValueAccessor, NgControlStatus, NgControlStatusGroup, FormGroupDirective, FormControlName], styles: ["\n\nbody[_ngcontent-%COMP%] {\n  font-family: Arial, sans-serif;\n  background-color: #f4f4f4;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100vh;\n  margin: 0;\n}\n.signup-form-container[_ngcontent-%COMP%] {\n  padding: 2rem;\n  border-radius: 8px;\n  width: 100%;\n  max-width: 400px;\n}\nh2[_ngcontent-%COMP%] {\n  text-align: center;\n  margin-bottom: 1.5rem;\n  color: #333;\n}\n.form-group[_ngcontent-%COMP%] {\n  margin-bottom: 1rem;\n}\n.form-group[_ngcontent-%COMP%]   label[_ngcontent-%COMP%] {\n  display: block;\n  margin-bottom: 0.5rem;\n  color: #555;\n}\n.form-group[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  width: 100%;\n  padding: 0.75rem;\n  border: 1px solid #ccc;\n  border-radius: 4px;\n  box-sizing: border-box;\n}\nbutton[_ngcontent-%COMP%] {\n  width: 100%;\n  padding: 0.75rem;\n  background-color: #007bff;\n  border: none;\n  border-radius: 4px;\n  color: #fff;\n  font-size: 1rem;\n  cursor: pointer;\n  transition: background-color 0.3s;\n}\nbutton[_ngcontent-%COMP%]:hover {\n  background-color: #0056b3;\n}"] });
+};
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(EmailIdentifierChallengeComponent, [{
+    type: Component,
+    args: [{ selector: "app-email-identifier-challenge", imports: [ReactiveFormsModule], template: '<div class="login-container">\n    <div class="signup-form-container">\n        <div class="logo-header">\n            <img\n                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2Af-0Ku07cG0FeEYv341kbJynefnHPzpDqg&s"\n                alt="Company Logo"\n                class="logo-img"\n            />\n            <h2>{{ title }}</h2>\n            <h3>{{ desc }} {{ email }}</h3>\n        </div>\n        <form [formGroup]="emailIdForm" (ngSubmit)="handleSubmit($event)">\n            <div class="form-group"></div>\n            <div class="form-group">\n                <label for="code">Code</label>\n                <input\n                    type="text"\n                    formControlName="code"\n                    placeholder="{{ pc }}"\n                />\n            </div>\n            <button type="submit">{{ bt }}</button>\n        </form>\n        <div class="login-footer">\n            <p>\n                {{ rt }}<a (click)="resend()">{{ rat }}</a>\n            </p>\n        </div>\n        <p>\n            <a (click)="goBack()">{{ gb }}</a>\n        </p>\n    </div>\n</div>\n', styles: ["/* src/app/email-identifier-challenge/email-identifier-challenge.component.css */\nbody {\n  font-family: Arial, sans-serif;\n  background-color: #f4f4f4;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100vh;\n  margin: 0;\n}\n.signup-form-container {\n  padding: 2rem;\n  border-radius: 8px;\n  width: 100%;\n  max-width: 400px;\n}\nh2 {\n  text-align: center;\n  margin-bottom: 1.5rem;\n  color: #333;\n}\n.form-group {\n  margin-bottom: 1rem;\n}\n.form-group label {\n  display: block;\n  margin-bottom: 0.5rem;\n  color: #555;\n}\n.form-group input {\n  width: 100%;\n  padding: 0.75rem;\n  border: 1px solid #ccc;\n  border-radius: 4px;\n  box-sizing: border-box;\n}\nbutton {\n  width: 100%;\n  padding: 0.75rem;\n  background-color: #007bff;\n  border: none;\n  border-radius: 4px;\n  color: #fff;\n  font-size: 1rem;\n  cursor: pointer;\n  transition: background-color 0.3s;\n}\nbutton:hover {\n  background-color: #0056b3;\n}\n"] }]
+  }], null, null);
+})();
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(EmailIdentifierChallengeComponent, { className: "EmailIdentifierChallengeComponent" });
 })();
 
 // src/app/footer/footer.component.ts
@@ -46773,7 +47040,7 @@ var FooterComponent = class _FooterComponent {
   }], null, null);
 })();
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(FooterComponent, { className: "FooterComponent", filePath: "src/app/footer/footer.component.ts", lineNumber: 9 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(FooterComponent, { className: "FooterComponent" });
 })();
 
 // src/app/app.component.ts
@@ -46788,6 +47055,16 @@ function AppComponent_Conditional_8_Template(rf, ctx) {
   }
 }
 function AppComponent_Conditional_9_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275element(0, "app-signup-id");
+  }
+}
+function AppComponent_Conditional_10_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275element(0, "app-email-identifier-challenge");
+  }
+}
+function AppComponent_Conditional_11_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "p");
     \u0275\u0275text(1, "Not Implemented");
@@ -46815,7 +47092,7 @@ var AppComponent = class _AppComponent {
   static \u0275fac = function AppComponent_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _AppComponent)(\u0275\u0275directiveInject(DOCUMENT2));
   };
-  static \u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AppComponent, selectors: [["app-root"]], decls: 10, vars: 2, consts: [[1, "container"], [1, "theme-toggle", 2, "display", "none"], [1, "switch"], ["type", "checkbox", "id", "darkModeToggle", 3, "change", "ngModelChange", "ngModel"], [1, "slider"]], template: function AppComponent_Template(rf, ctx) {
+  static \u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AppComponent, selectors: [["app-root"]], decls: 12, vars: 2, consts: [[1, "container"], [1, "theme-toggle", 2, "display", "none"], [1, "switch"], ["type", "checkbox", "id", "darkModeToggle", 3, "change", "ngModelChange", "ngModel"], [1, "slider"]], template: function AppComponent_Template(rf, ctx) {
     if (rf & 1) {
       \u0275\u0275elementStart(0, "div", 0)(1, "div", 1)(2, "label", 2)(3, "input", 3);
       \u0275\u0275listener("change", function AppComponent_Template_input_change_3_listener($event) {
@@ -46831,18 +47108,20 @@ var AppComponent = class _AppComponent {
       \u0275\u0275elementStart(5, "span");
       \u0275\u0275text(6, "Dark Mode");
       \u0275\u0275elementEnd()();
-      \u0275\u0275template(7, AppComponent_Conditional_7_Template, 1, 0, "app-login-id")(8, AppComponent_Conditional_8_Template, 1, 0, "app-login-password")(9, AppComponent_Conditional_9_Template, 2, 0, "p");
+      \u0275\u0275template(7, AppComponent_Conditional_7_Template, 1, 0, "app-login-id")(8, AppComponent_Conditional_8_Template, 1, 0, "app-login-password")(9, AppComponent_Conditional_9_Template, 1, 0, "app-signup-id")(10, AppComponent_Conditional_10_Template, 1, 0, "app-email-identifier-challenge")(11, AppComponent_Conditional_11_Template, 2, 0, "p");
       \u0275\u0275elementEnd();
     }
     if (rf & 2) {
       \u0275\u0275advance(3);
       \u0275\u0275twoWayProperty("ngModel", ctx.checked);
       \u0275\u0275advance(4);
-      \u0275\u0275conditional(ctx.screenName === "login-id" ? 7 : ctx.screenName === "login-password" ? 8 : 9);
+      \u0275\u0275conditional(ctx.screenName === "login-id" ? 7 : ctx.screenName === "login-password" ? 8 : ctx.screenName === "signup-id" ? 9 : ctx.screenName === "email-identifier-challenge" ? 10 : 11);
     }
   }, dependencies: [
     LoginIdComponent,
     LoginPasswordComponent,
+    SignupIdComponent,
+    EmailIdentifierChallengeComponent,
     FormsModule,
     CheckboxControlValueAccessor,
     NgControlStatus,
@@ -46855,16 +47134,18 @@ var AppComponent = class _AppComponent {
     args: [{ selector: "app-root", imports: [
       LoginIdComponent,
       LoginPasswordComponent,
+      SignupIdComponent,
+      EmailIdentifierChallengeComponent,
       FormsModule,
       FooterComponent
-    ], encapsulation: ViewEncapsulation.None, template: '<div class="container">\n    <div class="theme-toggle" style="display: none">\n        <label class="switch">\n            <input\n                type="checkbox"\n                id="darkModeToggle"\n                (change)="toggleDarkMode($event)"\n                [(ngModel)]="checked"\n            />\n            <span class="slider"></span>\n        </label>\n        <span>Dark Mode</span>\n    </div>\n    @if (screenName === "login-id") {\n        <app-login-id />\n    } @else if (screenName === "login-password") {\n        <app-login-password />\n    } @else {\n        <p>Not Implemented</p>\n    }\n    <!--<app-footer></app-footer>-->\n</div>\n\n<!--\n  ng build --output-hashing none --configuration production --optimization=false\n-->\n', styles: ["/* src/app/app.component.css */\n.logo-header {\n  text-align: center;\n  margin-bottom: 25px;\n  padding-bottom: 15px;\n  border-bottom: 1px solid #eee;\n}\n.logo-img {\n  max-width: 120px;\n  height: auto;\n}\n.primary-login h2,\n.social-login h2 {\n  margin-top: 0;\n  margin-bottom: 20px;\n  color: #333;\n}\n.login-container {\n  background-color: rgba(255, 255, 255, 0.9);\n  border-radius: 10px;\n  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);\n  padding: 30px;\n  width: 650px;\n}\n.login-form {\n  display: flex;\n  flex-direction: column;\n}\n.form-content {\n  display: flex;\n  gap: 30px;\n  margin-bottom: 20px;\n}\n.form-column {\n  display: flex;\n  flex-direction: column;\n  padding: 20px;\n  flex: 1;\n  min-width: 250px;\n}\n.primary-login {\n  justify-content: center;\n  align-items: center;\n}\n.primary-login h2 {\n  margin-bottom: 20px;\n  color: #333;\n}\n.input-group {\n  width: 100%;\n  margin-bottom: 20px;\n}\n.input-group label {\n  display: block;\n  margin-bottom: 5px;\n  font-weight: bold;\n  color: #555;\n}\n.input-group input[type=text] {\n  width: 100%;\n  padding: 10px;\n  border: 1px solid #ccc;\n  border-radius: 5px;\n  box-sizing: border-box;\n}\n.submit-button {\n  padding: 12px 20px;\n  background-color: #007bff;\n  color: white;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  font-size: 16px;\n  transition: background-color 0.3s;\n  width: 100%;\n}\n.submit-button:hover {\n  background-color: #0056b3;\n}\n.vertical-divider {\n  width: 1px;\n  background-color: #ccc;\n  margin: 10px 0;\n}\n.social-login {\n  gap: 15px;\n}\n.social-login h2 {\n  margin-top: 0;\n  margin-bottom: 25px;\n  color: #333;\n  text-align: center;\n}\n.social-button {\n  display: flex;\n  align-items: center;\n  justify-content: flex-start;\n  width: 100%;\n  padding: 10px 15px;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: bold;\n  color: white;\n  transition: opacity 0.3s;\n}\n.social-button:hover {\n  opacity: 0.9;\n}\n.social-button .icon {\n  font-size: 18px;\n  margin-right: 15px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.facebook {\n  background-color: #3b5998;\n}\n.google {\n  background-color: #db4437;\n}\n.apple {\n  background-color: #000000;\n}\n.form-footer {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding-top: 15px;\n  border-top: 1px solid #eee;\n  font-size: 14px;\n}\n.form-footer .footer-link {\n  color: #007bff;\n  text-decoration: none;\n  margin: 0 10px;\n  transition: color 0.3s;\n}\n.form-footer .footer-link:hover {\n  color: #0056b3;\n  text-decoration: underline;\n}\n.form-footer span {\n  color: #ccc;\n}\n"] }]
+    ], encapsulation: ViewEncapsulation.None, template: '<div class="container">\n    <div class="theme-toggle" style="display: none">\n        <label class="switch">\n            <input\n                type="checkbox"\n                id="darkModeToggle"\n                (change)="toggleDarkMode($event)"\n                [(ngModel)]="checked"\n            />\n            <span class="slider"></span>\n        </label>\n        <span>Dark Mode</span>\n    </div>\n    @if (screenName === "login-id") {\n        <app-login-id />\n    } @else if (screenName === "login-password") {\n        <app-login-password />\n    } @else if (screenName === "signup-id") {\n        <app-signup-id />\n    } @else if (screenName === "email-identifier-challenge") {\n        <app-email-identifier-challenge />\n    } @else {\n        <p>Not Implemented</p>\n    }\n    <!--<app-footer></app-footer>-->\n</div>\n\n<!--\n  ng build --output-hashing none --configuration production --optimization=false\n-->\n', styles: ["/* src/app/app.component.css */\n.logo-header {\n  text-align: center;\n  margin-bottom: 25px;\n  padding-bottom: 15px;\n  border-bottom: 1px solid #eee;\n}\n.logo-img {\n  max-width: 120px;\n  height: auto;\n}\n.primary-login h2,\n.social-login h2 {\n  margin-top: 0;\n  margin-bottom: 20px;\n  color: #333;\n}\n.login-container {\n  background-color: rgba(255, 255, 255, 0.9);\n  border-radius: 10px;\n  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);\n  padding: 30px;\n  width: 650px;\n}\n.login-form {\n  display: flex;\n  flex-direction: column;\n}\n.form-content {\n  display: flex;\n  gap: 30px;\n  margin-bottom: 20px;\n}\n.form-column {\n  display: flex;\n  flex-direction: column;\n  padding: 20px;\n  flex: 1;\n  min-width: 250px;\n}\n.primary-login {\n  justify-content: center;\n  align-items: center;\n}\n.primary-login h2 {\n  margin-bottom: 20px;\n  color: #333;\n}\n.input-group {\n  width: 100%;\n  margin-bottom: 20px;\n}\n.input-group label {\n  display: block;\n  margin-bottom: 5px;\n  font-weight: bold;\n  color: #555;\n}\n.input-group input[type=text] {\n  width: 100%;\n  padding: 10px;\n  border: 1px solid #ccc;\n  border-radius: 5px;\n  box-sizing: border-box;\n}\n.submit-button {\n  padding: 12px 20px;\n  background-color: #007bff;\n  color: white;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  font-size: 16px;\n  transition: background-color 0.3s;\n  width: 100%;\n}\n.submit-button:hover {\n  background-color: #0056b3;\n}\n.vertical-divider {\n  width: 1px;\n  background-color: #ccc;\n  margin: 10px 0;\n}\n.social-login {\n  gap: 15px;\n}\n.social-login h2 {\n  margin-top: 0;\n  margin-bottom: 25px;\n  color: #333;\n  text-align: center;\n}\n.social-button {\n  display: flex;\n  align-items: center;\n  justify-content: flex-start;\n  width: 100%;\n  padding: 10px 15px;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: bold;\n  color: white;\n  transition: opacity 0.3s;\n}\n.social-button:hover {\n  opacity: 0.9;\n}\n.social-button .icon {\n  font-size: 18px;\n  margin-right: 15px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.facebook {\n  background-color: #3b5998;\n}\n.google {\n  background-color: #db4437;\n}\n.apple {\n  background-color: #000000;\n}\n.form-footer {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding-top: 15px;\n  border-top: 1px solid #eee;\n  font-size: 14px;\n}\n.form-footer .footer-link {\n  color: #007bff;\n  text-decoration: none;\n  margin: 0 10px;\n  transition: color 0.3s;\n}\n.form-footer .footer-link:hover {\n  color: #0056b3;\n  text-decoration: underline;\n}\n.form-footer span {\n  color: #ccc;\n}\n"] }]
   }], () => [{ type: Document, decorators: [{
     type: Inject,
     args: [DOCUMENT2]
   }] }], null);
 })();
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AppComponent, { className: "AppComponent", filePath: "src/app/app.component.ts", lineNumber: 22 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AppComponent, { className: "AppComponent" });
 })();
 
 // src/app/app.routes.ts
