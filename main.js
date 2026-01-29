@@ -46677,7 +46677,9 @@ var LoginPasswordComponent = class _LoginPasswordComponent {
     console.log(this.loginPasswordForm.value.email, this.loginPasswordForm.value.password);
     this.screenProvider.login({
       username: this.loginPasswordForm.value.email ?? "",
-      password: this.loginPasswordForm.value.password ?? ""
+      password: this.loginPasswordForm.value.password ?? "",
+      "ulp-identifier": this.screenProvider.screen.data?.username,
+      "ulp-abcd": "gopal"
     });
   }
   static \u0275fac = function LoginPasswordComponent_Factory(__ngFactoryType__) {
