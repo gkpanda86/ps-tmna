@@ -46641,13 +46641,6 @@ var LoginIdComponent = class _LoginIdComponent {
 })();
 
 // src/app/login-password/login-password.component.ts
-function LoginPasswordComponent_Conditional_10_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 5);
-    \u0275\u0275text(1, " Wrong email or password ");
-    \u0275\u0275elementEnd();
-  }
-}
 var LoginPasswordComponent = class _LoginPasswordComponent {
   screenProvider = new a6();
   loginPasswordForm = new FormGroup({
@@ -46685,57 +46678,52 @@ var LoginPasswordComponent = class _LoginPasswordComponent {
   static \u0275fac = function LoginPasswordComponent_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _LoginPasswordComponent)();
   };
-  static \u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _LoginPasswordComponent, selectors: [["app-login-password"]], decls: 20, vars: 7, consts: [[1, "login-container"], ["alt", "Logo", 1, "login-logo", 3, "src"], [3, "ngSubmit", "formGroup"], ["type", "text", "formControlName", "email", 1, "login-input"], ["type", "password", "formControlName", "password", "placeholder", "password", 1, "login-input"], [2, "color", "red", "font-size", "small"], ["type", "submit", 1, "login-button"], [1, "login-footer"], [3, "href"]], template: function LoginPasswordComponent_Template(rf, ctx) {
+  static \u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _LoginPasswordComponent, selectors: [["app-login-password"]], decls: 25, vars: 3, consts: [[1, "login-container"], [1, "login-form", 3, "ngSubmit", "formGroup"], [1, "logo-header"], ["src", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2Af-0Ku07cG0FeEYv341kbJynefnHPzpDqg&s", "alt", "Company Logo", 1, "logo-img"], [1, "form-content"], [1, "form-column", "primary-login"], [1, "input-group"], ["for", "username"], ["type", "text", "id", "username", "name", "username", "placeholder", "Enter your username", "required", "", "formControlName", "email"], ["type", "text", "id", "username", "name", "username", "placeholder", "Enter your password", "required", "", "formControlName", "password"], ["type", "submit", 1, "submit-button"], [1, "form-footer"], [1, "footer-link", 3, "href"]], template: function LoginPasswordComponent_Template(rf, ctx) {
     if (rf & 1) {
-      \u0275\u0275elementStart(0, "div", 0);
-      \u0275\u0275element(1, "img", 1);
-      \u0275\u0275elementStart(2, "h2");
-      \u0275\u0275text(3);
-      \u0275\u0275elementEnd();
-      \u0275\u0275elementStart(4, "h3");
-      \u0275\u0275text(5);
-      \u0275\u0275elementEnd();
-      \u0275\u0275elementStart(6, "form", 2);
-      \u0275\u0275listener("ngSubmit", function LoginPasswordComponent_Template_form_ngSubmit_6_listener() {
+      \u0275\u0275elementStart(0, "div", 0)(1, "form", 1);
+      \u0275\u0275listener("ngSubmit", function LoginPasswordComponent_Template_form_ngSubmit_1_listener() {
         return ctx.handleSubmit();
       });
-      \u0275\u0275elementStart(7, "div");
-      \u0275\u0275element(8, "input", 3);
+      \u0275\u0275elementStart(2, "div", 2);
+      \u0275\u0275element(3, "img", 3);
       \u0275\u0275elementEnd();
-      \u0275\u0275element(9, "input", 4);
-      \u0275\u0275template(10, LoginPasswordComponent_Conditional_10_Template, 2, 0, "div", 5);
-      \u0275\u0275elementStart(11, "button", 6);
-      \u0275\u0275text(12, "Sign In");
+      \u0275\u0275elementStart(4, "div", 4)(5, "div", 5)(6, "h2");
+      \u0275\u0275text(7, "Sign In");
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(8, "div", 6)(9, "label", 7);
+      \u0275\u0275text(10, "Email");
+      \u0275\u0275elementEnd();
+      \u0275\u0275element(11, "input", 8);
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(12, "div", 6)(13, "label", 7);
+      \u0275\u0275text(14, "Password");
+      \u0275\u0275elementEnd();
+      \u0275\u0275element(15, "input", 9);
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(16, "button", 10);
+      \u0275\u0275text(17, "Log In");
+      \u0275\u0275elementEnd()()();
+      \u0275\u0275elementStart(18, "div", 11)(19, "p")(20, "a", 12);
+      \u0275\u0275text(21, "Forgot Password");
       \u0275\u0275elementEnd()();
-      \u0275\u0275elementStart(13, "div", 7)(14, "p")(15, "a", 8);
-      \u0275\u0275text(16, "Forgot Password");
-      \u0275\u0275elementEnd()();
-      \u0275\u0275elementStart(17, "p")(18, "a", 8);
-      \u0275\u0275text(19, "Edit Username");
-      \u0275\u0275elementEnd()()()();
+      \u0275\u0275elementStart(22, "p")(23, "a", 12);
+      \u0275\u0275text(24, "Edit Username");
+      \u0275\u0275elementEnd()()()()();
     }
     if (rf & 2) {
       \u0275\u0275advance();
-      \u0275\u0275propertyInterpolate("src", ctx.logoUrl, \u0275\u0275sanitizeUrl);
-      \u0275\u0275advance(2);
-      \u0275\u0275textInterpolate(ctx.title);
-      \u0275\u0275advance(2);
-      \u0275\u0275textInterpolate(ctx.desc);
-      \u0275\u0275advance();
       \u0275\u0275property("formGroup", ctx.loginPasswordForm);
-      \u0275\u0275advance(4);
-      \u0275\u0275conditional(ctx.hasErrors ? 10 : -1);
-      \u0275\u0275advance(5);
+      \u0275\u0275advance(19);
       \u0275\u0275property("href", ctx.forgotPasswordLink, \u0275\u0275sanitizeUrl);
       \u0275\u0275advance(3);
       \u0275\u0275property("href", ctx.editUsername, \u0275\u0275sanitizeUrl);
     }
-  }, dependencies: [ReactiveFormsModule, \u0275NgNoValidate, DefaultValueAccessor, NgControlStatus, NgControlStatusGroup, FormGroupDirective, FormControlName], encapsulation: 2 });
+  }, dependencies: [ReactiveFormsModule, \u0275NgNoValidate, DefaultValueAccessor, NgControlStatus, NgControlStatusGroup, RequiredValidator, FormGroupDirective, FormControlName], encapsulation: 2 });
 };
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(LoginPasswordComponent, [{
     type: Component,
-    args: [{ selector: "app-login-password", imports: [ReactiveFormsModule], template: '<div class="login-container">\r\n  <img src="{{logoUrl}}" alt="Logo" class="login-logo" />\r\n  <h2>{{title}}</h2>\r\n  <h3>{{desc}}</h3>\r\n  <form [formGroup]="loginPasswordForm" (ngSubmit)="handleSubmit()">\r\n    <div>\r\n      <input type="text" formControlName="email" class="login-input" />\r\n    </div>\r\n\r\n    <input type="password" class="login-input" formControlName="password" placeholder="password" />\r\n    @if (hasErrors) {\r\n    <div style="color:red;font-size:small">\r\n      Wrong email or password\r\n    </div>\r\n    }\r\n    <button type="submit" class="login-button">Sign In</button>\r\n  </form>\r\n  <div class="login-footer">\r\n    <p><a [href]="forgotPasswordLink">Forgot Password</a></p>\r\n    <p><a [href]="editUsername">Edit Username</a></p>\r\n  </div>\r\n</div>' }]
+    args: [{ selector: "app-login-password", imports: [ReactiveFormsModule], template: '<!--<div class="login-container">\n  <img src="{{logoUrl}}" alt="Logo" class="login-logo" />\n  <h2>{{title}}</h2>\n  <h3>{{desc}}</h3>\n  <form [formGroup]="loginPasswordForm" (ngSubmit)="handleSubmit()">\n    <div>\n      <input type="text" formControlName="email" class="login-input" />\n    </div>\n\n    <input type="password" class="login-input" formControlName="password" placeholder="password" />\n    @if (hasErrors) {\n    <div style="color:red;font-size:small">\n      Wrong email or password\n    </div>\n    }\n    <button type="submit" class="login-button">Sign In</button>\n  </form>\n  <div class="login-footer">\n    <p><a [href]="forgotPasswordLink">Forgot Password</a></p>\n    <p><a [href]="editUsername">Edit Username</a></p>\n  </div>\n</div>-->\n\n<div class="login-container">\n    <form\n        class="login-form"\n        [formGroup]="loginPasswordForm"\n        (ngSubmit)="handleSubmit()"\n    >\n        <div class="logo-header">\n            <img\n                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2Af-0Ku07cG0FeEYv341kbJynefnHPzpDqg&s"\n                alt="Company Logo"\n                class="logo-img"\n            />\n        </div>\n\n        <div class="form-content">\n            <div class="form-column primary-login">\n                <h2>Sign In</h2>\n                <div class="input-group">\n                    <label for="username">Email</label>\n                    <input\n                        type="text"\n                        id="username"\n                        name="username"\n                        placeholder="Enter your username"\n                        required\n                        formControlName="email"\n                    />\n                </div>\n                <div class="input-group">\n                    <label for="username">Password</label>\n                    <input\n                        type="text"\n                        id="username"\n                        name="username"\n                        placeholder="Enter your password"\n                        required\n                        formControlName="password"\n                    />\n                </div>\n\n                <button type="submit" class="submit-button">Log In</button>\n            </div>\n        </div>\n\n        <!--<div class="form-footer">\n\n            <a [href]="signUpLink" class="footer-link">Sign Up</a>\n        </div>-->\n        <div class="form-footer">\n            <p>\n                <a [href]="forgotPasswordLink" class="footer-link"\n                    >Forgot Password</a\n                >\n            </p>\n            <p>\n                <a [href]="editUsername" class="footer-link">Edit Username</a>\n            </p>\n        </div>\n    </form>\n</div>\n' }]
   }], null, null);
 })();
 (() => {
