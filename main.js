@@ -42594,6 +42594,378 @@ var EmailIdentifierChallengeComponent = class _EmailIdentifierChallengeComponent
   (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(EmailIdentifierChallengeComponent, { className: "EmailIdentifierChallengeComponent" });
 })();
 
+// src/app/tmna-login-id/tmna-login-id.component.ts
+var TmnaLoginIdComponent = class _TmnaLoginIdComponent {
+  screenProvider = new m2();
+  loginIdForm = new FormGroup({
+    email: new FormControl(""),
+    token: new FormControl(" ")
+  });
+  ngOnInit() {
+    console.log(this.screenProvider);
+  }
+  usernameFlow = false;
+  emailLabel = this.screenProvider.screen.texts?.emailPlaceholder;
+  title = this.screenProvider.screen.texts?.title;
+  desc = this.screenProvider.screen.texts?.description;
+  buttonText = this.screenProvider.screen.texts?.buttonText;
+  signUpLink = this.screenProvider.screen.links?.signup;
+  forgotPasswordLink = this.screenProvider.screen.links?.reset_password;
+  logoUrl = this.screenProvider.client.logoUrl;
+  isCaptcha = this.screenProvider.screen.isCaptchaAvailable;
+  siteKey = this.screenProvider.screen.captchaSiteKey ?? "";
+  handleLoginSubmit(e34) {
+    e34.preventDefault();
+    console.log(this.loginIdForm.value.email, "hello");
+    if (this.loginIdForm.value.email === "cdwtest@atko.email") {
+      this.screenProvider.federatedLogin({
+        connection: "TheMontanaConnection",
+        login_hint: "this.loginIdForm.value.email"
+      });
+    } else if (this.loginIdForm.value.email === "ff@atko.email") {
+      this.screenProvider.federatedLogin({
+        connection: "PrimaryAuth0Tenant",
+        login_hint: "this.loginIdForm.value.email"
+      });
+    } else {
+      this.screenProvider.login({
+        username: this.loginIdForm.value.email ?? ""
+      });
+    }
+  }
+  sendCaptchaResponse(captchaResponse) {
+    console.log(`Resolved captcha with response: ${captchaResponse}`);
+  }
+  handleSocialLogin(x) {
+    console.log(" So you want use " + x + " to login");
+    this.screenProvider.federatedLogin({
+      connection: x
+    });
+  }
+  static \u0275fac = function TmnaLoginIdComponent_Factory(__ngFactoryType__) {
+    return new (__ngFactoryType__ || _TmnaLoginIdComponent)();
+  };
+  static \u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _TmnaLoginIdComponent, selectors: [["app-tmna-login-id"]], decls: 48, vars: 1, consts: [[1, "container"], [1, "logo"], [1, "logo-box"], ["width", "24", "height", "24", "viewBox", "0 0 24 24", "fill", "white"], ["cx", "12", "cy", "8", "rx", "4", "ry", "3.5", "fill", "none", "stroke", "white", "stroke-width", "1.5"], ["d", "M4 12c0-1.5 3.5-3 8-3s8 1.5 8 3", "fill", "none", "stroke", "white", "stroke-width", "1.5"], ["cx", "12", "cy", "16", "rx", "8", "ry", "5", "fill", "none", "stroke", "white", "stroke-width", "1.5"], [1, "logo-text"], [1, "content"], [3, "ngSubmit", "formGroup"], [1, "left-section"], [1, "section-title"], [1, "input-group"], ["type", "text", "placeholder", "Email or mobile number", "formControlName", "email"], [1, "button-group"], [1, "btn-outline"], [1, "footer-text"], [1, "divider"], [1, "divider-text"], [1, "right-section"], [1, "sso-button", 3, "click"], [1, "sso-icon"], [1, "footer-links"], ["href", "#"]], template: function TmnaLoginIdComponent_Template(rf, ctx) {
+    if (rf & 1) {
+      \u0275\u0275elementStart(0, "div", 0)(1, "div", 1)(2, "div", 2);
+      \u0275\u0275namespaceSVG();
+      \u0275\u0275elementStart(3, "svg", 3);
+      \u0275\u0275element(4, "ellipse", 4)(5, "path", 5)(6, "ellipse", 6);
+      \u0275\u0275elementEnd()();
+      \u0275\u0275namespaceHTML();
+      \u0275\u0275elementStart(7, "span", 7);
+      \u0275\u0275text(8, "TOYOTA");
+      \u0275\u0275elementEnd()();
+      \u0275\u0275elementStart(9, "h1");
+      \u0275\u0275text(10, "Sign in");
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(11, "div", 8)(12, "form", 9);
+      \u0275\u0275listener("ngSubmit", function TmnaLoginIdComponent_Template_form_ngSubmit_12_listener($event) {
+        return ctx.handleLoginSubmit($event);
+      });
+      \u0275\u0275elementStart(13, "div", 10)(14, "div", 11);
+      \u0275\u0275text(15, "Use your email or mobile number");
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(16, "div", 12);
+      \u0275\u0275element(17, "input", 13);
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(18, "div", 14)(19, "button", 15);
+      \u0275\u0275text(20, "Create Account");
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(21, "button", 15);
+      \u0275\u0275text(22, "Next Step");
+      \u0275\u0275elementEnd()();
+      \u0275\u0275elementStart(23, "div", 16);
+      \u0275\u0275text(24, " You can use your My Lexus or My Toyota or SmartPath account information to log in. ");
+      \u0275\u0275elementEnd()()();
+      \u0275\u0275elementStart(25, "div", 17)(26, "span", 18);
+      \u0275\u0275text(27, "or");
+      \u0275\u0275elementEnd()();
+      \u0275\u0275elementStart(28, "div", 19)(29, "div", 11);
+      \u0275\u0275text(30, "Continue with Single Sign-On");
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(31, "button", 20);
+      \u0275\u0275listener("click", function TmnaLoginIdComponent_Template_button_click_31_listener() {
+        return ctx.handleSocialLogin("apple");
+      });
+      \u0275\u0275element(32, "span", 21);
+      \u0275\u0275elementStart(33, "span");
+      \u0275\u0275text(34, "Continue with Apple");
+      \u0275\u0275elementEnd()();
+      \u0275\u0275elementStart(35, "button", 20);
+      \u0275\u0275listener("click", function TmnaLoginIdComponent_Template_button_click_35_listener() {
+        return ctx.handleSocialLogin("google-oauth2");
+      });
+      \u0275\u0275element(36, "span", 21);
+      \u0275\u0275elementStart(37, "span");
+      \u0275\u0275text(38, "Continue with Google");
+      \u0275\u0275elementEnd()();
+      \u0275\u0275elementStart(39, "button", 20);
+      \u0275\u0275listener("click", function TmnaLoginIdComponent_Template_button_click_39_listener() {
+        return ctx.handleSocialLogin("facebook");
+      });
+      \u0275\u0275element(40, "span", 21);
+      \u0275\u0275elementStart(41, "span");
+      \u0275\u0275text(42, "Continue with Facebook");
+      \u0275\u0275elementEnd()()()();
+      \u0275\u0275elementStart(43, "div", 22)(44, "a", 23);
+      \u0275\u0275text(45, "Activate Account \u203A");
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(46, "a", 23);
+      \u0275\u0275text(47, "Support \u203A");
+      \u0275\u0275elementEnd()()();
+    }
+    if (rf & 2) {
+      \u0275\u0275advance(12);
+      \u0275\u0275property("formGroup", ctx.loginIdForm);
+    }
+  }, dependencies: [ReactiveFormsModule, \u0275NgNoValidate, DefaultValueAccessor, NgControlStatus, NgControlStatusGroup, FormGroupDirective, FormControlName], styles: ['\n\n*[_ngcontent-%COMP%] {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\nbody[_ngcontent-%COMP%] {\n  font-family:\n    -apple-system,\n    BlinkMacSystemFont,\n    "Segoe UI",\n    Arial,\n    sans-serif;\n  background-color: #f5f5f5;\n  padding: 40px 20px;\n}\n.container[_ngcontent-%COMP%] {\n  max-width: 900px;\n  margin: 0 auto;\n  background-color: white;\n  padding: 60px;\n  border-radius: 8px;\n}\n.logo[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  margin-bottom: 60px;\n}\n.logo-box[_ngcontent-%COMP%] {\n  background-color: #eb0a1e;\n  width: 40px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 4px;\n}\n.logo-text[_ngcontent-%COMP%] {\n  font-size: 24px;\n  font-weight: bold;\n  letter-spacing: 2px;\n}\n.content[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: 1fr auto 1fr;\n  gap: 40px;\n  align-items: start;\n}\n.divider[_ngcontent-%COMP%] {\n  width: 1px;\n  background-color: #ddd;\n  height: 100%;\n  min-height: 300px;\n  position: relative;\n}\n.divider-text[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  background-color: white;\n  padding: 10px;\n  color: #666;\n}\nh1[_ngcontent-%COMP%] {\n  font-size: 32px;\n  margin-bottom: 20px;\n  font-weight: 500;\n}\n.section-title[_ngcontent-%COMP%] {\n  font-size: 14px;\n  margin-bottom: 20px;\n  color: #333;\n}\n.input-group[_ngcontent-%COMP%] {\n  margin-bottom: 10px;\n}\ninput[type=text][_ngcontent-%COMP%] {\n  width: 100%;\n  padding: 16px;\n  border: 2px solid #ddd;\n  border-radius: 4px;\n  font-size: 16px;\n  transition: border-color 0.3s;\n}\ninput[type=text][_ngcontent-%COMP%]:focus {\n  outline: none;\n  border-color: #eb0a1e;\n}\ninput[type=text].error[_ngcontent-%COMP%] {\n  border-color: #eb0a1e;\n}\n.error-message[_ngcontent-%COMP%] {\n  color: #eb0a1e;\n  font-size: 12px;\n  margin-top: 8px;\n}\n.button-group[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 15px;\n  margin-top: 30px;\n}\nbutton[_ngcontent-%COMP%] {\n  padding: 14px 32px;\n  border-radius: 25px;\n  font-size: 16px;\n  cursor: pointer;\n  transition: all 0.3s;\n  font-weight: 500;\n}\n.btn-outline[_ngcontent-%COMP%] {\n  background-color: white;\n  border: 2px solid #333;\n  color: #333;\n}\n.btn-outline[_ngcontent-%COMP%]:hover {\n  background-color: #333;\n  color: white;\n}\n.btn-disabled[_ngcontent-%COMP%] {\n  background-color: #ddd;\n  border: none;\n  color: #999;\n  cursor: not-allowed;\n}\n.sso-button[_ngcontent-%COMP%] {\n  width: 100%;\n  padding: 14px 20px;\n  border: 2px solid #ddd;\n  border-radius: 4px;\n  background-color: white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 12px;\n  margin-bottom: 15px;\n  font-size: 16px;\n  cursor: pointer;\n  transition: all 0.3s;\n}\n.sso-button[_ngcontent-%COMP%]:hover {\n  border-color: #999;\n  background-color: #f9f9f9;\n}\n.sso-icon[_ngcontent-%COMP%] {\n  width: 24px;\n  height: 24px;\n  font-size: 24px;\n}\n.footer-text[_ngcontent-%COMP%] {\n  margin-top: 40px;\n  font-size: 13px;\n  color: #666;\n  line-height: 1.6;\n}\n.footer-links[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 30px;\n  margin-top: 40px;\n}\n.footer-links[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  color: #333;\n  text-decoration: none;\n  font-size: 14px;\n  display: flex;\n  align-items: center;\n  gap: 5px;\n}\n.footer-links[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:hover {\n  text-decoration: underline;\n}\n@media (max-width: 768px) {\n  .content[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .divider[_ngcontent-%COMP%] {\n    display: none;\n  }\n  .container[_ngcontent-%COMP%] {\n    padding: 30px 20px;\n  }\n}'] });
+};
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(TmnaLoginIdComponent, [{
+    type: Component,
+    args: [{ selector: "app-tmna-login-id", imports: [ReactiveFormsModule], template: `<div class="container">
+    <div class="logo">
+        <div class="logo-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                <ellipse
+                    cx="12"
+                    cy="8"
+                    rx="4"
+                    ry="3.5"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="1.5"
+                />
+                <path
+                    d="M4 12c0-1.5 3.5-3 8-3s8 1.5 8 3"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="1.5"
+                />
+                <ellipse
+                    cx="12"
+                    cy="16"
+                    rx="8"
+                    ry="5"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="1.5"
+                />
+            </svg>
+        </div>
+        <span class="logo-text">TOYOTA</span>
+    </div>
+
+    <h1>Sign in</h1>
+
+    <div class="content">
+        <!-- Left Section -->
+        <form [formGroup]="loginIdForm" (ngSubmit)="handleLoginSubmit($event)">
+            <div class="left-section">
+                <div class="section-title">Use your email or mobile number</div>
+
+                <div class="input-group">
+                    <input
+                        type="text"
+                        placeholder="Email or mobile number"
+                        formControlName="email"
+                    />
+                    <!--<div class="error-message">
+                        Please enter a valid email or mobile number.
+                    </div>-->
+                </div>
+
+                <div class="button-group">
+                    <button class="btn-outline">Create Account</button>
+                    <button class="btn-outline">Next Step</button>
+                </div>
+
+                <div class="footer-text">
+                    You can use your My Lexus or My Toyota or SmartPath account
+                    information to log in.
+                </div>
+            </div>
+        </form>
+
+        <!-- Divider -->
+        <div class="divider">
+            <span class="divider-text">or</span>
+        </div>
+
+        <!-- Right Section -->
+        <div class="right-section">
+            <div class="section-title">Continue with Single Sign-On</div>
+
+            <button class="sso-button" (click)="handleSocialLogin('apple')">
+                <span class="sso-icon"
+                    ><!--img
+                        src="https://techdocs.akamai.com/identity-cloud/img/social-login/identity-providers/apple-icon-white-23.jpg"
+                /--></span
+                >
+                <span>Continue with Apple</span>
+            </button>
+
+            <button
+                class="sso-button"
+                (click)="handleSocialLogin('google-oauth2')"
+            >
+                <span class="sso-icon"
+                    ><!--img
+                        src="https://www.incidentiq.com/wp-content/uploads/2022/09/GoogleSSO-logo.png"
+                /--></span
+                >
+                <span>Continue with Google</span>
+            </button>
+
+            <button class="sso-button" (click)="handleSocialLogin('facebook')">
+                <span class="sso-icon"
+                    ><!--img
+                        src="https://images.ctfassets.net/23aumh6u8s0i/5rK62NTJvF2m28zXkvA6cp/476d5befbf876ad8a6583303415f8e27/facebook_login_hero"
+                /--></span
+                >
+                <span>Continue with Facebook</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="footer-links">
+        <a href="#">Activate Account &rsaquo;</a>
+        <a href="#">Support &rsaquo;</a>
+    </div>
+</div>
+`, styles: ['/* src/app/tmna-login-id/tmna-login-id.component.css */\n* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\nbody {\n  font-family:\n    -apple-system,\n    BlinkMacSystemFont,\n    "Segoe UI",\n    Arial,\n    sans-serif;\n  background-color: #f5f5f5;\n  padding: 40px 20px;\n}\n.container {\n  max-width: 900px;\n  margin: 0 auto;\n  background-color: white;\n  padding: 60px;\n  border-radius: 8px;\n}\n.logo {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  margin-bottom: 60px;\n}\n.logo-box {\n  background-color: #eb0a1e;\n  width: 40px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 4px;\n}\n.logo-text {\n  font-size: 24px;\n  font-weight: bold;\n  letter-spacing: 2px;\n}\n.content {\n  display: grid;\n  grid-template-columns: 1fr auto 1fr;\n  gap: 40px;\n  align-items: start;\n}\n.divider {\n  width: 1px;\n  background-color: #ddd;\n  height: 100%;\n  min-height: 300px;\n  position: relative;\n}\n.divider-text {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  background-color: white;\n  padding: 10px;\n  color: #666;\n}\nh1 {\n  font-size: 32px;\n  margin-bottom: 20px;\n  font-weight: 500;\n}\n.section-title {\n  font-size: 14px;\n  margin-bottom: 20px;\n  color: #333;\n}\n.input-group {\n  margin-bottom: 10px;\n}\ninput[type=text] {\n  width: 100%;\n  padding: 16px;\n  border: 2px solid #ddd;\n  border-radius: 4px;\n  font-size: 16px;\n  transition: border-color 0.3s;\n}\ninput[type=text]:focus {\n  outline: none;\n  border-color: #eb0a1e;\n}\ninput[type=text].error {\n  border-color: #eb0a1e;\n}\n.error-message {\n  color: #eb0a1e;\n  font-size: 12px;\n  margin-top: 8px;\n}\n.button-group {\n  display: flex;\n  gap: 15px;\n  margin-top: 30px;\n}\nbutton {\n  padding: 14px 32px;\n  border-radius: 25px;\n  font-size: 16px;\n  cursor: pointer;\n  transition: all 0.3s;\n  font-weight: 500;\n}\n.btn-outline {\n  background-color: white;\n  border: 2px solid #333;\n  color: #333;\n}\n.btn-outline:hover {\n  background-color: #333;\n  color: white;\n}\n.btn-disabled {\n  background-color: #ddd;\n  border: none;\n  color: #999;\n  cursor: not-allowed;\n}\n.sso-button {\n  width: 100%;\n  padding: 14px 20px;\n  border: 2px solid #ddd;\n  border-radius: 4px;\n  background-color: white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 12px;\n  margin-bottom: 15px;\n  font-size: 16px;\n  cursor: pointer;\n  transition: all 0.3s;\n}\n.sso-button:hover {\n  border-color: #999;\n  background-color: #f9f9f9;\n}\n.sso-icon {\n  width: 24px;\n  height: 24px;\n  font-size: 24px;\n}\n.footer-text {\n  margin-top: 40px;\n  font-size: 13px;\n  color: #666;\n  line-height: 1.6;\n}\n.footer-links {\n  display: flex;\n  gap: 30px;\n  margin-top: 40px;\n}\n.footer-links a {\n  color: #333;\n  text-decoration: none;\n  font-size: 14px;\n  display: flex;\n  align-items: center;\n  gap: 5px;\n}\n.footer-links a:hover {\n  text-decoration: underline;\n}\n@media (max-width: 768px) {\n  .content {\n    grid-template-columns: 1fr;\n  }\n  .divider {\n    display: none;\n  }\n  .container {\n    padding: 30px 20px;\n  }\n}\n'] }]
+  }], null, null);
+})();
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(TmnaLoginIdComponent, { className: "TmnaLoginIdComponent" });
+})();
+
+// src/app/tmna-login-pwd/tmna-login-pwd.component.ts
+var TmnaLoginPwdComponent = class _TmnaLoginPwdComponent {
+  cookieService = new CookieService();
+  screenProvider = new a6();
+  loginPasswordForm = new FormGroup({
+    email: new FormControl({
+      value: this.screenProvider.screen.data?.username,
+      disabled: true
+    }),
+    password: new FormControl("")
+  });
+  editUsername = this.screenProvider.screen.links?.edit_identifier;
+  forgotPasswordLink = this.screenProvider.screen.links?.reset_password;
+  hasErrors = false;
+  title = this.screenProvider.screen.texts?.title;
+  desc = this.screenProvider.screen.texts?.description;
+  logoUrl = this.screenProvider.client.logoUrl;
+  cookieValue = "";
+  ngOnInit() {
+    console.log(this.screenProvider);
+    if (this.screenProvider.transaction.hasErrors) {
+      this.loginPasswordForm.controls.password.setErrors({
+        "wrong-email-credentials": true
+      });
+      console.log("hasErrors");
+      this.hasErrors = true;
+    }
+    this.cookieValue = this.cookieService.get("device-id");
+    console.log("old value", this.cookieValue);
+    if (!this.cookieValue) {
+      this.cookieValue = crypto.randomUUID();
+      this.cookieService.set("device-id", this.cookieValue);
+      console.log(this.cookieValue);
+    }
+  }
+  handleSubmit() {
+    console.log(this.loginPasswordForm.value.email, this.loginPasswordForm.value.password);
+    this.screenProvider.login({
+      username: this.loginPasswordForm.value.email ?? "",
+      password: this.loginPasswordForm.value.password ?? "",
+      "ulp-identifier": this.screenProvider.screen.data?.username,
+      "ulp-device-id": this.cookieValue
+    });
+  }
+  static \u0275fac = function TmnaLoginPwdComponent_Factory(__ngFactoryType__) {
+    return new (__ngFactoryType__ || _TmnaLoginPwdComponent)();
+  };
+  static \u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _TmnaLoginPwdComponent, selectors: [["app-tmna-login-pwd"]], decls: 42, vars: 3, consts: [[1, "container"], [1, "logo"], [1, "logo-box"], ["width", "24", "height", "24", "viewBox", "0 0 24 24", "fill", "white"], ["cx", "12", "cy", "8", "rx", "4", "ry", "3.5", "fill", "none", "stroke", "white", "stroke-width", "1.5"], ["d", "M4 12c0-1.5 3.5-3 8-3s8 1.5 8 3", "fill", "none", "stroke", "white", "stroke-width", "1.5"], ["cx", "12", "cy", "16", "rx", "8", "ry", "5", "fill", "none", "stroke", "white", "stroke-width", "1.5"], [1, "logo-text"], [1, "subtitle"], [3, "ngSubmit", "formGroup"], [1, "form-group"], [1, "form-label"], ["type", "email", "formControlName", "email"], [1, "required-asterisk"], [1, "input-wrapper"], ["type", "password", "id", "passwordInput", "placeholder", "", "required", "", "formControlName", "password"], ["type", "button", 1, "password-toggle"], ["viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2", 1, "eye-icon"], ["d", "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"], ["cx", "12", "cy", "12", "r", "3"], ["id", "toggleText"], [1, "forgot-password", 3, "href"], [1, "required-note"], ["type", "submit", "id", "signInBtn", 1, "sign-in-button"], [1, "footer-links"], [3, "href"], ["href", "#"]], template: function TmnaLoginPwdComponent_Template(rf, ctx) {
+    if (rf & 1) {
+      \u0275\u0275elementStart(0, "div", 0)(1, "div", 1)(2, "div", 2);
+      \u0275\u0275namespaceSVG();
+      \u0275\u0275elementStart(3, "svg", 3);
+      \u0275\u0275element(4, "ellipse", 4)(5, "path", 5)(6, "ellipse", 6);
+      \u0275\u0275elementEnd()();
+      \u0275\u0275namespaceHTML();
+      \u0275\u0275elementStart(7, "span", 7);
+      \u0275\u0275text(8, "TOYOTA");
+      \u0275\u0275elementEnd()();
+      \u0275\u0275elementStart(9, "h1");
+      \u0275\u0275text(10, "Sign In");
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(11, "p", 8);
+      \u0275\u0275text(12, "Sign in with your Toyota password");
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(13, "form", 9);
+      \u0275\u0275listener("ngSubmit", function TmnaLoginPwdComponent_Template_form_ngSubmit_13_listener() {
+        return ctx.handleSubmit();
+      });
+      \u0275\u0275elementStart(14, "div", 10)(15, "label", 11);
+      \u0275\u0275text(16, "Email");
+      \u0275\u0275elementEnd();
+      \u0275\u0275element(17, "input", 12);
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(18, "div", 10)(19, "label", 11);
+      \u0275\u0275text(20, " Password");
+      \u0275\u0275elementStart(21, "span", 13);
+      \u0275\u0275text(22, "*");
+      \u0275\u0275elementEnd()();
+      \u0275\u0275elementStart(23, "div", 14);
+      \u0275\u0275element(24, "input", 15);
+      \u0275\u0275elementStart(25, "button", 16);
+      \u0275\u0275namespaceSVG();
+      \u0275\u0275elementStart(26, "svg", 17);
+      \u0275\u0275element(27, "path", 18)(28, "circle", 19);
+      \u0275\u0275elementEnd();
+      \u0275\u0275namespaceHTML();
+      \u0275\u0275elementStart(29, "span", 20);
+      \u0275\u0275text(30, "Show");
+      \u0275\u0275elementEnd()()();
+      \u0275\u0275elementStart(31, "a", 21);
+      \u0275\u0275text(32, "Forgot Password");
+      \u0275\u0275elementEnd()();
+      \u0275\u0275elementStart(33, "div", 22);
+      \u0275\u0275text(34, "*Required");
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(35, "button", 23);
+      \u0275\u0275text(36, " Sign In ");
+      \u0275\u0275elementEnd()();
+      \u0275\u0275elementStart(37, "div", 24)(38, "a", 25);
+      \u0275\u0275text(39, "Try a Different Sign In \u203A");
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(40, "a", 26);
+      \u0275\u0275text(41, "Support \u203A");
+      \u0275\u0275elementEnd()()();
+    }
+    if (rf & 2) {
+      \u0275\u0275advance(13);
+      \u0275\u0275property("formGroup", ctx.loginPasswordForm);
+      \u0275\u0275advance(18);
+      \u0275\u0275property("href", ctx.forgotPasswordLink, \u0275\u0275sanitizeUrl);
+      \u0275\u0275advance(7);
+      \u0275\u0275property("href", ctx.editUsername, \u0275\u0275sanitizeUrl);
+    }
+  }, dependencies: [ReactiveFormsModule, \u0275NgNoValidate, DefaultValueAccessor, NgControlStatus, NgControlStatusGroup, RequiredValidator, FormGroupDirective, FormControlName], styles: ['\n\n*[_ngcontent-%COMP%] {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\nbody[_ngcontent-%COMP%] {\n  font-family:\n    -apple-system,\n    BlinkMacSystemFont,\n    "Segoe UI",\n    Arial,\n    sans-serif;\n  background-color: #f5f5f5;\n  padding: 40px 20px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  min-height: 100vh;\n}\n.container[_ngcontent-%COMP%] {\n  max-width: 480px;\n  width: 100%;\n  background-color: white;\n  padding: 60px 50px;\n  border-radius: 8px;\n  text-align: center;\n}\n.logo[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  gap: 10px;\n  margin-bottom: 50px;\n}\n.logo-box[_ngcontent-%COMP%] {\n  background-color: #eb0a1e;\n  width: 40px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 4px;\n}\n.logo-text[_ngcontent-%COMP%] {\n  font-size: 24px;\n  font-weight: bold;\n  letter-spacing: 2px;\n  color: #000;\n}\nh1[_ngcontent-%COMP%] {\n  font-size: 36px;\n  margin-bottom: 20px;\n  font-weight: 500;\n  color: #000;\n}\n.subtitle[_ngcontent-%COMP%] {\n  font-size: 16px;\n  color: #333;\n  margin-bottom: 40px;\n}\n.form-group[_ngcontent-%COMP%] {\n  margin-bottom: 25px;\n  text-align: left;\n}\n.form-label[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 14px;\n  color: #666;\n  margin-bottom: 8px;\n  font-weight: 500;\n}\n.input-wrapper[_ngcontent-%COMP%] {\n  position: relative;\n}\ninput[type=email][_ngcontent-%COMP%], \ninput[type=password][_ngcontent-%COMP%] {\n  width: 100%;\n  padding: 16px;\n  border: 2px solid #ccc;\n  border-radius: 4px;\n  font-size: 16px;\n  transition: border-color 0.3s;\n  background-color: #f9f9f9;\n}\ninput[type=email][_ngcontent-%COMP%]:focus, \ninput[type=password][_ngcontent-%COMP%]:focus {\n  outline: none;\n  border-color: #666;\n  background-color: white;\n}\ninput[type=email][_ngcontent-%COMP%]:disabled {\n  background-color: #f0f0f0;\n  color: #666;\n  cursor: not-allowed;\n}\n.password-toggle[_ngcontent-%COMP%] {\n  position: absolute;\n  right: 16px;\n  top: 50%;\n  transform: translateY(-50%);\n  background: none;\n  border: none;\n  cursor: pointer;\n  color: #666;\n  font-size: 14px;\n  display: flex;\n  align-items: center;\n  gap: 5px;\n  padding: 5px;\n}\n.password-toggle[_ngcontent-%COMP%]:hover {\n  color: #000;\n}\n.eye-icon[_ngcontent-%COMP%] {\n  width: 20px;\n  height: 20px;\n}\n.required-asterisk[_ngcontent-%COMP%] {\n  color: #eb0a1e;\n}\n.forgot-password[_ngcontent-%COMP%] {\n  display: block;\n  text-align: left;\n  color: #eb0a1e;\n  text-decoration: none;\n  font-size: 14px;\n  margin-top: 12px;\n  font-weight: 500;\n}\n.forgot-password[_ngcontent-%COMP%]:hover {\n  text-decoration: underline;\n}\n.required-note[_ngcontent-%COMP%] {\n  text-align: left;\n  font-size: 13px;\n  color: #666;\n  margin-top: 20px;\n  margin-bottom: 30px;\n}\n.sign-in-button[_ngcontent-%COMP%] {\n  width: 100%;\n  max-width: 200px;\n  padding: 14px 32px;\n  border-radius: 25px;\n  font-size: 16px;\n  cursor: pointer;\n  transition: all 0.3s;\n  font-weight: 500;\n  background-color: #ddd;\n  border: none;\n  color: #999;\n  margin-bottom: 40px;\n}\n.sign-in-button[_ngcontent-%COMP%]:not(:disabled) {\n  background-color: #000;\n  color: white;\n  cursor: pointer;\n}\n.sign-in-button[_ngcontent-%COMP%]:not(:disabled):hover {\n  background-color: #333;\n}\n.sign-in-button[_ngcontent-%COMP%]:disabled {\n  cursor: not-allowed;\n}\n.trouble-text[_ngcontent-%COMP%] {\n  font-size: 14px;\n  color: #666;\n  margin-bottom: 20px;\n}\n.footer-links[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: center;\n  gap: 40px;\n  margin-top: 20px;\n}\n.footer-links[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  color: #000;\n  text-decoration: none;\n  font-size: 14px;\n  font-weight: 500;\n  display: flex;\n  align-items: center;\n  gap: 5px;\n}\n.footer-links[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:hover {\n  text-decoration: underline;\n}\n@media (max-width: 600px) {\n  .container[_ngcontent-%COMP%] {\n    padding: 40px 30px;\n  }\n  h1[_ngcontent-%COMP%] {\n    font-size: 28px;\n  }\n  .footer-links[_ngcontent-%COMP%] {\n    flex-direction: column;\n    gap: 15px;\n  }\n}'] });
+};
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(TmnaLoginPwdComponent, [{
+    type: Component,
+    args: [{ selector: "app-tmna-login-pwd", imports: [ReactiveFormsModule], template: '<div class="container">\n    <div class="logo">\n        <div class="logo-box">\n            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">\n                <ellipse\n                    cx="12"\n                    cy="8"\n                    rx="4"\n                    ry="3.5"\n                    fill="none"\n                    stroke="white"\n                    stroke-width="1.5"\n                />\n                <path\n                    d="M4 12c0-1.5 3.5-3 8-3s8 1.5 8 3"\n                    fill="none"\n                    stroke="white"\n                    stroke-width="1.5"\n                />\n                <ellipse\n                    cx="12"\n                    cy="16"\n                    rx="8"\n                    ry="5"\n                    fill="none"\n                    stroke="white"\n                    stroke-width="1.5"\n                />\n            </svg>\n        </div>\n        <span class="logo-text">TOYOTA</span>\n    </div>\n\n    <h1>Sign In</h1>\n    <p class="subtitle">Sign in with your Toyota password</p>\n\n    <form [formGroup]="loginPasswordForm" (ngSubmit)="handleSubmit()">\n        <div class="form-group">\n            <label class="form-label">Email</label>\n            <input type="email" formControlName="email" />\n        </div>\n\n        <div class="form-group">\n            <label class="form-label">\n                Password<span class="required-asterisk">*</span>\n            </label>\n            <div class="input-wrapper">\n                <input\n                    type="password"\n                    id="passwordInput"\n                    placeholder=""\n                    required\n                    formControlName="password"\n                />\n                <button type="button" class="password-toggle">\n                    <svg\n                        class="eye-icon"\n                        viewBox="0 0 24 24"\n                        fill="none"\n                        stroke="currentColor"\n                        stroke-width="2"\n                    >\n                        <path\n                            d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"\n                        ></path>\n                        <circle cx="12" cy="12" r="3"></circle>\n                    </svg>\n                    <span id="toggleText">Show</span>\n                </button>\n            </div>\n            <a [href]="forgotPasswordLink" class="forgot-password"\n                >Forgot Password</a\n            >\n        </div>\n\n        <div class="required-note">*Required</div>\n\n        <button type="submit" class="sign-in-button" id="signInBtn">\n            Sign In\n        </button>\n    </form>\n\n    <!--<p class="trouble-text">Still having trouble?</p>-->\n\n    <div class="footer-links">\n        <a [href]="editUsername">Try a Different Sign In &rsaquo;</a>\n        <a href="#">Support &rsaquo;</a>\n    </div>\n</div>\n\n<!--<script>\n    const passwordInput = document.getElementById("passwordInput");\n    const signInBtn = document.getElementById("signInBtn");\n    const toggleText = document.getElementById("toggleText");\n\n    // Enable/disable sign in button based on password input\n    passwordInput.addEventListener("input", function () {\n        if (this.value.trim() !== "") {\n            signInBtn.disabled = false;\n        } else {\n            signInBtn.disabled = true;\n        }\n    });\n\n    // Toggle password visibility\n    function togglePassword() {\n        const type = passwordInput.getAttribute("type");\n        if (type === "password") {\n            passwordInput.setAttribute("type", "text");\n            toggleText.textContent = "Hide";\n        } else {\n            passwordInput.setAttribute("type", "password");\n            toggleText.textContent = "Show";\n        }\n    }\n\n    // Prevent form submission for demo\n    // document\n    //     .getElementById("signInForm")\n    //     .addEventListener("submit", function (e) {\n    //         e.preventDefault();\n    //         alert("Sign in submitted!");\n    //     });\n<\/script>-->\n', styles: ['/* src/app/tmna-login-pwd/tmna-login-pwd.component.css */\n* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\nbody {\n  font-family:\n    -apple-system,\n    BlinkMacSystemFont,\n    "Segoe UI",\n    Arial,\n    sans-serif;\n  background-color: #f5f5f5;\n  padding: 40px 20px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  min-height: 100vh;\n}\n.container {\n  max-width: 480px;\n  width: 100%;\n  background-color: white;\n  padding: 60px 50px;\n  border-radius: 8px;\n  text-align: center;\n}\n.logo {\n  display: inline-flex;\n  align-items: center;\n  gap: 10px;\n  margin-bottom: 50px;\n}\n.logo-box {\n  background-color: #eb0a1e;\n  width: 40px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 4px;\n}\n.logo-text {\n  font-size: 24px;\n  font-weight: bold;\n  letter-spacing: 2px;\n  color: #000;\n}\nh1 {\n  font-size: 36px;\n  margin-bottom: 20px;\n  font-weight: 500;\n  color: #000;\n}\n.subtitle {\n  font-size: 16px;\n  color: #333;\n  margin-bottom: 40px;\n}\n.form-group {\n  margin-bottom: 25px;\n  text-align: left;\n}\n.form-label {\n  display: block;\n  font-size: 14px;\n  color: #666;\n  margin-bottom: 8px;\n  font-weight: 500;\n}\n.input-wrapper {\n  position: relative;\n}\ninput[type=email],\ninput[type=password] {\n  width: 100%;\n  padding: 16px;\n  border: 2px solid #ccc;\n  border-radius: 4px;\n  font-size: 16px;\n  transition: border-color 0.3s;\n  background-color: #f9f9f9;\n}\ninput[type=email]:focus,\ninput[type=password]:focus {\n  outline: none;\n  border-color: #666;\n  background-color: white;\n}\ninput[type=email]:disabled {\n  background-color: #f0f0f0;\n  color: #666;\n  cursor: not-allowed;\n}\n.password-toggle {\n  position: absolute;\n  right: 16px;\n  top: 50%;\n  transform: translateY(-50%);\n  background: none;\n  border: none;\n  cursor: pointer;\n  color: #666;\n  font-size: 14px;\n  display: flex;\n  align-items: center;\n  gap: 5px;\n  padding: 5px;\n}\n.password-toggle:hover {\n  color: #000;\n}\n.eye-icon {\n  width: 20px;\n  height: 20px;\n}\n.required-asterisk {\n  color: #eb0a1e;\n}\n.forgot-password {\n  display: block;\n  text-align: left;\n  color: #eb0a1e;\n  text-decoration: none;\n  font-size: 14px;\n  margin-top: 12px;\n  font-weight: 500;\n}\n.forgot-password:hover {\n  text-decoration: underline;\n}\n.required-note {\n  text-align: left;\n  font-size: 13px;\n  color: #666;\n  margin-top: 20px;\n  margin-bottom: 30px;\n}\n.sign-in-button {\n  width: 100%;\n  max-width: 200px;\n  padding: 14px 32px;\n  border-radius: 25px;\n  font-size: 16px;\n  cursor: pointer;\n  transition: all 0.3s;\n  font-weight: 500;\n  background-color: #ddd;\n  border: none;\n  color: #999;\n  margin-bottom: 40px;\n}\n.sign-in-button:not(:disabled) {\n  background-color: #000;\n  color: white;\n  cursor: pointer;\n}\n.sign-in-button:not(:disabled):hover {\n  background-color: #333;\n}\n.sign-in-button:disabled {\n  cursor: not-allowed;\n}\n.trouble-text {\n  font-size: 14px;\n  color: #666;\n  margin-bottom: 20px;\n}\n.footer-links {\n  display: flex;\n  justify-content: center;\n  gap: 40px;\n  margin-top: 20px;\n}\n.footer-links a {\n  color: #000;\n  text-decoration: none;\n  font-size: 14px;\n  font-weight: 500;\n  display: flex;\n  align-items: center;\n  gap: 5px;\n}\n.footer-links a:hover {\n  text-decoration: underline;\n}\n@media (max-width: 600px) {\n  .container {\n    padding: 40px 30px;\n  }\n  h1 {\n    font-size: 28px;\n  }\n  .footer-links {\n    flex-direction: column;\n    gap: 15px;\n  }\n}\n'] }]
+  }], null, null);
+})();
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(TmnaLoginPwdComponent, { className: "TmnaLoginPwdComponent" });
+})();
+
 // src/app/footer/footer.component.ts
 var FooterComponent = class _FooterComponent {
   static \u0275fac = function FooterComponent_Factory(__ngFactoryType__) {
@@ -42629,12 +43001,12 @@ var FooterComponent = class _FooterComponent {
 // src/app/app.component.ts
 function AppComponent_Conditional_7_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "app-login-id");
+    \u0275\u0275element(0, "app-tmna-login-id");
   }
 }
 function AppComponent_Conditional_8_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "app-login-password");
+    \u0275\u0275element(0, "app-tmna-login-pwd");
   }
 }
 function AppComponent_Conditional_9_Template(rf, ctx) {
@@ -42691,7 +43063,7 @@ var AppComponent = class _AppComponent {
       \u0275\u0275elementStart(5, "span");
       \u0275\u0275text(6, "Dark Mode");
       \u0275\u0275elementEnd()();
-      \u0275\u0275conditionalCreate(7, AppComponent_Conditional_7_Template, 1, 0, "app-login-id")(8, AppComponent_Conditional_8_Template, 1, 0, "app-login-password")(9, AppComponent_Conditional_9_Template, 1, 0, "app-signup-id")(10, AppComponent_Conditional_10_Template, 1, 0, "app-email-identifier-challenge")(11, AppComponent_Conditional_11_Template, 2, 0, "p");
+      \u0275\u0275conditionalCreate(7, AppComponent_Conditional_7_Template, 1, 0, "app-tmna-login-id")(8, AppComponent_Conditional_8_Template, 1, 0, "app-tmna-login-pwd")(9, AppComponent_Conditional_9_Template, 1, 0, "app-signup-id")(10, AppComponent_Conditional_10_Template, 1, 0, "app-email-identifier-challenge")(11, AppComponent_Conditional_11_Template, 2, 0, "p");
       \u0275\u0275elementEnd();
     }
     if (rf & 2) {
@@ -42701,10 +43073,10 @@ var AppComponent = class _AppComponent {
       \u0275\u0275conditional(ctx.screenName === "login-id" ? 7 : ctx.screenName === "login-password" ? 8 : ctx.screenName === "signup-id" ? 9 : ctx.screenName === "email-identifier-challenge" ? 10 : 11);
     }
   }, dependencies: [
-    LoginIdComponent,
-    LoginPasswordComponent,
     SignupIdComponent,
     EmailIdentifierChallengeComponent,
+    TmnaLoginIdComponent,
+    TmnaLoginPwdComponent,
     FormsModule,
     CheckboxControlValueAccessor,
     NgControlStatus,
@@ -42719,9 +43091,11 @@ var AppComponent = class _AppComponent {
       LoginPasswordComponent,
       SignupIdComponent,
       EmailIdentifierChallengeComponent,
+      TmnaLoginIdComponent,
+      TmnaLoginPwdComponent,
       FormsModule,
       FooterComponent
-    ], encapsulation: ViewEncapsulation.None, template: '<div class="container">\n    <div class="theme-toggle" style="display: none">\n        <label class="switch">\n            <input\n                type="checkbox"\n                id="darkModeToggle"\n                (change)="toggleDarkMode($event)"\n                [(ngModel)]="checked"\n            />\n            <span class="slider"></span>\n        </label>\n        <span>Dark Mode</span>\n    </div>\n    @if (screenName === "login-id") {\n        <app-login-id />\n    } @else if (screenName === "login-password") {\n        <app-login-password />\n    } @else if (screenName === "signup-id") {\n        <app-signup-id />\n    } @else if (screenName === "email-identifier-challenge") {\n        <app-email-identifier-challenge />\n    } @else {\n        <p>Not Implemented</p>\n    }\n    <!--<app-footer></app-footer>-->\n</div>\n\n<!--\n  ng build --output-hashing none --configuration production --optimization=false\n-->\n', styles: ["/* src/app/app.component.css */\n.logo-header {\n  text-align: center;\n  margin-bottom: 25px;\n  padding-bottom: 15px;\n  border-bottom: 1px solid #eee;\n}\n.logo-img {\n  max-width: 120px;\n  height: auto;\n}\n.primary-login h2,\n.social-login h2 {\n  margin-top: 0;\n  margin-bottom: 20px;\n  color: #333;\n}\n.login-container {\n  background-color: rgba(255, 255, 255, 0.9);\n  border-radius: 10px;\n  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);\n  padding: 30px;\n  width: 650px;\n}\n.login-form {\n  display: flex;\n  flex-direction: column;\n}\n.form-content {\n  display: flex;\n  gap: 30px;\n  margin-bottom: 20px;\n}\n.form-column {\n  display: flex;\n  flex-direction: column;\n  padding: 20px;\n  flex: 1;\n  min-width: 250px;\n}\n.primary-login {\n  justify-content: center;\n  align-items: center;\n}\n.primary-login h2 {\n  margin-bottom: 20px;\n  color: #333;\n}\n.input-group {\n  width: 100%;\n  margin-bottom: 20px;\n}\n.input-group label {\n  display: block;\n  margin-bottom: 5px;\n  font-weight: bold;\n  color: #555;\n}\n.input-group input[type=text] {\n  width: 100%;\n  padding: 10px;\n  border: 1px solid #ccc;\n  border-radius: 5px;\n  box-sizing: border-box;\n}\n.input-group input[type=password] {\n  width: 100%;\n  padding: 10px;\n  border: 1px solid #ccc;\n  border-radius: 5px;\n  box-sizing: border-box;\n}\n.submit-button {\n  padding: 12px 20px;\n  background-color: #007bff;\n  color: white;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  font-size: 16px;\n  transition: background-color 0.3s;\n  width: 100%;\n}\n.submit-button:hover {\n  background-color: #0056b3;\n}\n.vertical-divider {\n  width: 1px;\n  background-color: #ccc;\n  margin: 10px 0;\n}\n.social-login {\n  gap: 15px;\n}\n.social-login h2 {\n  margin-top: 0;\n  margin-bottom: 25px;\n  color: #333;\n  text-align: center;\n}\n.social-button {\n  display: flex;\n  align-items: center;\n  justify-content: flex-start;\n  width: 100%;\n  padding: 10px 15px;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: bold;\n  color: white;\n  transition: opacity 0.3s;\n}\n.social-button:hover {\n  opacity: 0.9;\n}\n.social-button .icon {\n  font-size: 18px;\n  margin-right: 15px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.facebook {\n  background-color: #3b5998;\n}\n.google {\n  background-color: #db4437;\n}\n.apple {\n  background-color: #000000;\n}\n.form-footer {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding-top: 15px;\n  border-top: 1px solid #eee;\n  font-size: 14px;\n}\n.form-footer .footer-link {\n  color: #007bff;\n  text-decoration: none;\n  margin: 0 10px;\n  transition: color 0.3s;\n}\n.form-footer .footer-link:hover {\n  color: #0056b3;\n  text-decoration: underline;\n}\n.form-footer span {\n  color: #ccc;\n}\n"] }]
+    ], encapsulation: ViewEncapsulation.None, template: '<div class="container">\n    <div class="theme-toggle" style="display: none">\n        <label class="switch">\n            <input\n                type="checkbox"\n                id="darkModeToggle"\n                (change)="toggleDarkMode($event)"\n                [(ngModel)]="checked"\n            />\n            <span class="slider"></span>\n        </label>\n        <span>Dark Mode</span>\n    </div>\n    @if (screenName === "login-id") {\n        <app-tmna-login-id />\n    } @else if (screenName === "login-password") {\n        <app-tmna-login-pwd />\n    } @else if (screenName === "signup-id") {\n        <app-signup-id />\n    } @else if (screenName === "email-identifier-challenge") {\n        <app-email-identifier-challenge />\n    } @else {\n        <p>Not Implemented</p>\n    }\n    <!--<app-footer></app-footer>-->\n</div>\n\n<!--\n  ng build --output-hashing none --configuration production --optimization=false\n-->\n', styles: ["/* src/app/app.component.css */\n.logo-header {\n  text-align: center;\n  margin-bottom: 25px;\n  padding-bottom: 15px;\n  border-bottom: 1px solid #eee;\n}\n.logo-img {\n  max-width: 120px;\n  height: auto;\n}\n.primary-login h2,\n.social-login h2 {\n  margin-top: 0;\n  margin-bottom: 20px;\n  color: #333;\n}\n.login-container {\n  background-color: rgba(255, 255, 255, 0.9);\n  border-radius: 10px;\n  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);\n  padding: 30px;\n  width: 650px;\n}\n.login-form {\n  display: flex;\n  flex-direction: column;\n}\n.form-content {\n  display: flex;\n  gap: 30px;\n  margin-bottom: 20px;\n}\n.form-column {\n  display: flex;\n  flex-direction: column;\n  padding: 20px;\n  flex: 1;\n  min-width: 250px;\n}\n.primary-login {\n  justify-content: center;\n  align-items: center;\n}\n.primary-login h2 {\n  margin-bottom: 20px;\n  color: #333;\n}\n.input-group {\n  width: 100%;\n  margin-bottom: 20px;\n}\n.input-group label {\n  display: block;\n  margin-bottom: 5px;\n  font-weight: bold;\n  color: #555;\n}\n.input-group input[type=text] {\n  width: 100%;\n  padding: 10px;\n  border: 1px solid #ccc;\n  border-radius: 5px;\n  box-sizing: border-box;\n}\n.input-group input[type=password] {\n  width: 100%;\n  padding: 10px;\n  border: 1px solid #ccc;\n  border-radius: 5px;\n  box-sizing: border-box;\n}\n.submit-button {\n  padding: 12px 20px;\n  background-color: #007bff;\n  color: white;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  font-size: 16px;\n  transition: background-color 0.3s;\n  width: 100%;\n}\n.submit-button:hover {\n  background-color: #0056b3;\n}\n.vertical-divider {\n  width: 1px;\n  background-color: #ccc;\n  margin: 10px 0;\n}\n.social-login {\n  gap: 15px;\n}\n.social-login h2 {\n  margin-top: 0;\n  margin-bottom: 25px;\n  color: #333;\n  text-align: center;\n}\n.social-button {\n  display: flex;\n  align-items: center;\n  justify-content: flex-start;\n  width: 100%;\n  padding: 10px 15px;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: bold;\n  color: white;\n  transition: opacity 0.3s;\n}\n.social-button:hover {\n  opacity: 0.9;\n}\n.social-button .icon {\n  font-size: 18px;\n  margin-right: 15px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.facebook {\n  background-color: #3b5998;\n}\n.google {\n  background-color: #db4437;\n}\n.apple {\n  background-color: #000000;\n}\n.form-footer {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding-top: 15px;\n  border-top: 1px solid #eee;\n  font-size: 14px;\n}\n.form-footer .footer-link {\n  color: #007bff;\n  text-decoration: none;\n  margin: 0 10px;\n  transition: color 0.3s;\n}\n.form-footer .footer-link:hover {\n  color: #0056b3;\n  text-decoration: underline;\n}\n.form-footer span {\n  color: #ccc;\n}\n"] }]
   }], () => [{ type: Document, decorators: [{
     type: Inject,
     args: [DOCUMENT]
